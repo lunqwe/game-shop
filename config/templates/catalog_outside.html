@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<header class="site-header section-padding d-flex justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12">
+                            <h1>
+                                <span class="d-block text-primary">TEXT</span>
+                                <span class="d-block text-dark">TEXT</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="products section-padding">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-12">
+                            <h2 class="mb-5">Настільні ігри</h2>
+                        </div>
+                        {% for product in table_games %}
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="/product/{{product.id}}">
+                                    <img src='{{ product.image.url }}' class="img-fluid product-image" width=400 heigth=400 alt="">
+                                </a>
+
+                                {% comment %} <div class="product-top d-flex">
+                                    <span class="product-alert me-auto">123</span>
+
+                                    <a href="#" class="bi-heart-fill product-icon"></a>
+                                </div> {% endcomment %}
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="/product/{{product.id}}" class="product-title-link">{{ product.title }}</a>
+                                        </h5>
+
+                                        <p class="product-p">{{ product.price }}₴</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-12">
+                            <h2 class="mb-5">Конструктори</h2>
+                        </div>
+
+                        {% for product in constructors %}
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="/product/{{product.id}}">
+                                    <img src='{{ product.image.url }}' class="img-fluid product-image" width=416 heigth=416 alt="">
+                                </a>
+
+                                {% comment %} <div class="product-top d-flex">
+                                    <span class="product-alert me-auto">123</span>
+
+                                    <a href="#" class="bi-heart-fill product-icon"></a>
+                                </div> {% endcomment %}
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="/product/{{product.id}}" class="product-title-link">{{ product.title }}</a>
+                                        </h5>
+
+                                        <p class="product-p">{{ product.price }}₴</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+        </main>
+{% endblock content %}

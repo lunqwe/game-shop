@@ -63,87 +63,57 @@
                     <div class="row">
                         
                         <div class="col-12 text-center">
-                            <h2 class="mb-5">Featured Products</h2>
+                            <h2 class="mb-5">Настільні ігри</h2>
                         </div>
 
+                        {% for product in table_games %}
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{% static "images/product/1.jpeg" %}" class="img-fluid product-image" alt="">
+                                <a href="/product/{{product.id}}">
+                                    <img src='{{ product.image.url }}' class="img-fluid product-image" width=416 heigth=416 alt="">
                                 </a>
-
-                                <div class="product-top d-flex">
-                                    <span class="product-alert me-auto">New Arrival</span>
-
-                                    <a href="#" class="bi-heart-fill product-icon"></a>
-                                </div>
-
                                 <div class="product-info d-flex">
                                     <div>
                                         <h5 class="product-title mb-0">
-                                            <a href="/details" class="product-title-link">Tree pot</a>
+                                            <a href="/product/{{product.id}}" class="product-title-link">{{ product.title }}</a> 
                                         </h5>
 
-                                        <p class="product-p">Original package design from house</p>
+                                        <p class="product-p">{{ product.price }}₴</p>
                                     </div>
-
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
 
-                        <div class="col-lg-4 col-12 mb-3">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{% static "images/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg" %}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <span class="product-alert">Low Price</span>
-
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="#" class="product-title-link">Fashion Set</a>
-                                        </h5>
-
-                                        <p class="product-p">Costume Package</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$35</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-12">
-                            <div class="product-thumb">
-                                <a href="product-detail.html">
-                                    <img src="{% static "images/product/nature-zen-3Dn1BZZv3m8-unsplash.jpeg" %}" class="img-fluid product-image" alt="">
-                                </a>
-
-                                <div class="product-top d-flex">
-                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                                </div>
-
-                                <div class="product-info d-flex">
-                                    <div>
-                                        <h5 class="product-title mb-0">
-                                            <a href="product-detail.html" class="product-title-link">Juice Drinks</a>
-                                        </h5>
-
-                                        <p class="product-p">Nature made another world</p>
-                                    </div>
-
-                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$45</small>
-                                </div>
-                            </div>
-                        </div>
-
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        
                         <div class="col-12 text-center">
-                            <a href="/products/" class="view-all">View All Products</a>
+                            <h2 class="mb-5">Конструктори</h2>
+                        </div>
+
+                        {% for product in constructors %}
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="/product/{{product.id}}">
+                                    <img src='{{ product.image.url }}' class="img-fluid product-image" width=416 heigth=416 alt="">
+                                </a>
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="/product/{{product.id}}" class="product-title-link">{{ product.title }}</a>
+                                        </h5>
+
+                                        <p class="product-p">{{ product.price }}₴</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div class="col-12 text-center">
+                            <a href="/catalog/" class="view-all">Дивитися всі товари</a>
                         </div>
 
                     </div>

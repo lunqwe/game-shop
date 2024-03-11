@@ -7,49 +7,46 @@
 
                         <div class="col-lg-6 col-12">
                             <div class="product-thumb">
-                                <img src="{% static "images/product/1.jpeg" %}" class="img-fluid product-image" alt="">
+                                <img src="{{ product.image.url }}" class="img-fluid product-image" width=550 heigth=550 alt="">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-12">
                             <div class="product-info d-flex">
                                 <div>
-                                    <h2 class="product-title mb-0">Tree pot</h2>
-
-                                    <p class="product-p">Original package design from house</p>
+                                    <h2 class="product-title mb-0">{{product.title}}</h2>
                                 </div>
-
-                                <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
                             </div>
 
                             <div class="product-description">
 
-                                <strong class="d-block mt-4 mb-2">Description</strong>
+                                <strong class="d-block mt-4 mb-2">Опис товару</strong>
 
-                                <p class="lead mb-5">Over three years in business, We’ve had the chance to work on a variety of projects, with companies</p>
+                                <p class="d-block mt-4 mb-2">{{ product.description }}</p>
+
                             </div>
 
                             <div class="product-cart-thumb row">
+                                <p class="product-price" style='margin-bottom: 20px; margin-top: 50px; color: black;'>{{ product.price }}</p>
                                 <div class="col-lg-6 col-12">
                                     
                                     <select class="form-select cart-form-select" id="inputGroupSelect01">
-                                        <option selected>Quantity</option>
+                                        <option selected>Кількість</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
+                                    
                                 </div>
 
                                 <div class="col-lg-6 col-12 mt-4 mt-lg-0">
-                                    <button type="submit" class="btn custom-btn cart-btn" data-bs-toggle="modal" data-bs-target="#cart-modal">Add to Cart</button>
+                                    <button type="submit" class="btn custom-btn cart-btn" data-bs-toggle="modal" data-bs-target="#cart-modal">Додати до корзини</button>
                                 </div>
 
                                 <p>
-                                    <a href="#" class="product-additional-link">Details</a>
-
-                                    <a href="#" class="product-additional-link">Delivery and Payment</a>
+                                    <a href="/contact/" class="product-additional-link">Оплата та доставка</a>
                                 </p>
                             </div>
 

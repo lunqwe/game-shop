@@ -1,18 +1,5 @@
 import pandas as pd
-# Укажите путь к файлу Excel
-# file_path = 'data.xlsx'
-
-# # Загрузите данные из файла Excel в объект DataFrame
-# df = pd.read_excel(file_path)
-
-# for index, row in df.iterrows():
-#     title = row['Название'].strip()
-#     price = int(row['Цена'])
-#     display_price = f'{price}.00 $'
-#     article = str(row['Артикуль']).strip()
-#     description = row['Описание'].strip()
-    
-#     print(title, "\n", display_price, "\n", article, "\n", description, "\n end", )
+from .models import Product
 
 class DatabasePlaceholder():
     def get_data(file_path):
@@ -24,8 +11,10 @@ class DatabasePlaceholder():
         data = []
         for index, row in df.iterrows():
             title = row['Название'].strip()
-            price = int(row['Цена'])
-            display_price = f'{price}.00 ₴'
+            price = row['Цена']
+            print(price)
+            display_price = f"{price:.2f}"
+            print(display_price)
             article = str(row['Артикуль']).strip()
             description = row['Описание'].strip()
             display_type = display_type_dict[row['Тип']]
@@ -37,9 +26,5 @@ class DatabasePlaceholder():
         return data    
     
     def save_data(data):
-        pass
-        # Product.objects.create(**data)
-
-# print(DatabasePlaceholder.get_data('data.xlsx'))
-
-    
+        for product_data in data:
+            Product.objects.create(**product_data)
